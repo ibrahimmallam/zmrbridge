@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZM RiskBridge Consulting - Financial Management & Risk Consulting in Ghana</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9fafb;
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.25rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-text {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #15803d;
+        }
+
+        .logo-subtext {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .logo-tagline {
+            font-size: 0.75rem;
+            color: #6b7280;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #374151;
+            font-weight: 500;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #15803d;
+            border-bottom-color: #15803d;
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            color: white;
+            padding: 8rem 2rem;
+            text-align: left;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #d1fae5;
+            max-width: 800px;
+        }
+
+        .elevator-pitch {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-bottom: 2rem;
+            max-width: 900px;
+        }
+
+        .elevator-pitch p {
+            font-size: 1.125rem;
+            font-style: italic;
+            color: white;
+        }
+
+        .cta-button {
+            background: white;
+            color: #15803d;
+            padding: 0.875rem 2rem;
+            border-radius: 2rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+
+        .cta-button:hover {
+            background: #f0fdf4;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #15803d;
+            margin-bottom: 1rem;
+        }
+
+        /* Grid Layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+
+        .card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            transform: translateY(-4px);
+        }
+
+        .card.highlight {
+            border: 2px solid #10b981;
+        }
+
+        .service-icon {
+            width: 3rem;
+            height: 3rem;
+            margin-bottom: 1rem;
+            color: #15803d;
+        }
+
+        .card p {
+            color: #6b7280;
+            line-height: 1.8;
+        }
+
+        .about-section {
+            background: white;
+        }
+
+        .company-info {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .company-info h3 {
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .company-info p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Services Section */
+        .services-section {
+            background: #f3f4f6;
+        }
+
+        .specialization {
+            background: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-top: 3rem;
+        }
+
+        .specialization ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .specialization li {
+            padding: 0.75rem 0;
+            color: #374151;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .specialization li:before {
+            content: "•";
+            color: #15803d;
+            font-size: 1.5rem;
+            margin-right: 0.75rem;
+        }
+
+        .forensic-badge {
+            background: #f0fdf4;
+            color: #15803d;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            display: inline-block;
+            border-top: 1px solid #d1fae5;
+            padding-top: 1rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Team Section */
+        .team-member {
+            text-align: center;
+        }
+
+        .team-avatar {
+            width: 6rem;
+            height: 6rem;
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            border-radius: 50%;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+            color: #1f2937;
+        }
+
+        .team-position {
+            color: #15803d;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .team-credentials {
+            font-size: 0.875rem;
+            color: #6b7280;
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #f3f4f6;
+        }
+
+        .contact-info {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #15803d;
+            flex-shrink: 0;
+            margin-top: 0.25rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 0.25rem;
+        }
+
+        .contact-detail {
+            color: #6b7280;
+        }
+
+        .why-choose {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+
+        .why-choose h3 {
+            color: white;
+            font-size: 1.875rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .why-choose ul {
+            list-style: none;
+        }
+
+        .why-choose li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .why-choose li:before {
+            content: "✓";
+            color: #86efac;
+            font-size: 1.25rem;
+            margin-right: 0.75rem;
+            font-weight: bold;
+        }
+
+        .final-cta {
+            background: rgba(255,255,255,0.1);
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            margin-top: 2rem;
+        }
+
+        .final-cta p {
+            font-size: 0.875rem;
+            font-style: italic;
+        }
+
+        /* Footer */
+        footer {
+            background: #111827;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .footer-logo-text {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #10b981;
+        }
+
+        footer p {
+            color: #9ca3af;
+            font-size: 0.875rem;
+        }
+
+        .footer-tagline {
+            color: #6b7280;
+            font-size: 0.875rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: white;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .grid-2, .grid-3 {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Hide sections */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-text">ZM</div>
+                <div>
+                    <div class="logo-subtext">RiskBridge</div>
+                    <div class="logo-tagline">Consulting</div>
+                </div>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home" class="nav-link active" onclick="showSection('home')">Home</a></li>
+                <li><a href="#about" class="nav-link" onclick="showSection('about')">About Us</a></li>
+                <li><a href="#services" class="nav-link" onclick="showSection('services')">Services</a></li>
+                <li><a href="#team" class="nav-link" onclick="showSection('team')">Our Team</a></li>
+                <li><a href="#contact" class="nav-link" onclick="showSection('contact')">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero">
+        <h1>Building Bridges to Sustainable Financial Excellence</h1>
+        <p>Your trusted partner in financial management, risk mitigation, and strategic consulting for sustainability-focused enterprises in Ghana.</p>
+        <div class="elevator-pitch">
+            <p>"We empower sustainable businesses to thrive through expert financial management, forensic precision, and strategic risk intelligence—bridging the gap between vision and fiscal resilience."</p>
+        </div>
+        <a href="#contact" class="cta-button" onclick="showSection('contact')">Get in Touch</a>
+    </section>
+
+    <!-- About Us Section -->
+    <section id="about" class="about-section hidden">
+        <h2>About Us</h2>
+        
+        <div class="grid-2">
+            <div class="card">
+                <h3>Our Vision</h3>
+                <p>To be the leading financial management and risk consulting firm in Ghana, driving sustainable development through exceptional financial stewardship and forensic excellence.</p>
+            </div>
+
+            <div class="card">
+                <h3>Our Mission</h3>
+                <p>To deliver world-class consulting, auditing, and risk management services that empower sustainability-focused companies to achieve financial transparency, operational excellence, and long-term growth.</p>
+            </div>
+        </div>
+
+        <div class="company-info">
+            <h3>Who We Are</h3>
+            <p>ZM RiskBridge Consulting is Ghana's premier financial management consulting firm specializing in the sustainability sector. We combine forensic precision with strategic insight to help companies navigate complex financial landscapes.</p>
+            <p>Our expertise spans consulting, auditing, and risk management, with a particular focus on organizations committed to sustainable practices. Led by certified professionals with deep industry knowledge, we bridge the gap between financial integrity and sustainable growth.</p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section hidden">
+        <h2>Our Services</h2>
+        <p style="text-align: center; color: #6b7280; font-size: 1.25rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">Comprehensive financial solutions tailored for sustainability-focused enterprises</p>
+
+        <div class="grid-3">
+            <div class="card">
+                <svg class="service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+                </svg>
+                <h3>Consulting</h3>
+                <p>Strategic guidance for sustainable business practices and financial optimization in the sustainability sector.</p>
+            </div>
+
+            <div class="card highlight">
+                <svg class="service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                </svg>
+                <h3>Auditing</h3>
+                <p>Comprehensive financial audits and forensic investigations to ensure transparency, compliance, and accountability.</p>
+                <div class="forensic-badge">Led by Certified Forensic Investigation Professional</div>
+            </div>
+
+            <div class="card">
+                <svg class="service-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                </svg>
+                <h3>Risk Management</h3>
+                <p>Proactive identification and mitigation of financial and operational risks for sustainable growth and resilience.</p>
+            </div>
+        </div>
+
+        <div class="specialization">
+            <h3>Our Specialization</h3>
+            <p style="color: #374151; margin-bottom: 1rem;">We specialize in financial management for companies in the sustainability space, providing tailored solutions that address the unique challenges and opportunities in this dynamic sector.</p>
+            <ul>
+                <li>Environmental, Social, and Governance (ESG) financial reporting</li>
+                <li>Sustainable investment due diligence</li>
+                <li>Green finance and impact measurement</li>
+                <li>Regulatory compliance for sustainability initiatives</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section id="team" class="hidden">
+        <h2>Our Team</h2>
+        <p style="text-align: center; color: #6b7280; font-size: 1.25rem; margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto;">Meet the experts driving excellence in financial management and risk consulting</p>
+
+        <div class="grid-3">
+            <div class="card team-member">
+                <div class="team-avatar">ZM</div>
+                <h3>Zulkanain Mahama</h3>
+                <p class="team-position">Founder & CEO</p>
+                <p class="team-credentials">Certified Forensic Investigation Professional</p>
+                <p>Leading expert in forensic accounting and financial risk management</p>
+            </div>
+
+            <div class="card team-member">
+                <div class="team-avatar">MD</div>
+                <h3>Mensah Dadze</h3>
+                <p class="team-position">Communications Officer</p>
+                <p class="team-credentials">Strategic Communications Specialist</p>
+                <p>Driving stakeholder engagement and corporate communications</p>
+            </div>
+
+            <div class="card team-member">
+                <div class="team-avatar">MO</div>
+                <h3>Managing Officer</h3>
+                <p class="team-position">Managing Officer</p>
+                <p class="team-credentials">Operations & Strategy Lead</p>
+                <p>Ensuring operational excellence and client satisfaction</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section hidden">
+        <h2>Contact Us</h2>
+        <p style="text-align: center; color: #6b7280; font-size: 1.25rem; margin-bottom: 3rem;">Let's discuss how we can support your financial excellence</p>
+
+        <div class="grid-2">
+            <div class="card">
+                <h3>Get in Touch</h3>
+                
+                <div class="contact-info">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                    </svg>
+                    <div>
+                        <p class="contact-label">Address</p>
+                        <p class="contact-detail">Post Office Box 193</p>
+                        <p class="contact-detail">Busunya - Nkoranza B/E</p>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                    </svg>
+                    <div>
+                        <p class="contact-label">Phone</p>
+                        <p class="contact-detail">+233 244 845 947</p>
+                        <p class="contact-detail">+233 200 874 981</p>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <svg class="contact-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                    </svg>
+                    <div>
+                        <p class="contact-label">Email</p>
+                        <p class="contact-detail">zulkarnainemahama@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="why-choose">
+                <h3>Why Choose Us?</h3>
+                <ul>
+                    <li>Certified forensic investigation expertise</li>
+                    <li>Specialized in sustainability sector</li>
+                    <li>Comprehensive service portfolio</li>
+                    <li>Local expertise with international standards</li>
+                    <li>Committed to financial transparency</li>
+                </ul>
+
+                <div class="final-cta">
+                    <p>Ready to bridge the gap between sustainability goals and financial excellence? Contact us today.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <div class="footer-logo-text">ZM</div>
+            <div>
+                <div class="logo-subtext" style="color: white;">RiskBridge</div>
+                <div class="logo-tagline">Consulting</div>
+            </div>
+        </div>
+        <p>&copy; 2025 ZM RiskBridge Consulting. All rights reserved.</p>
+        <p class="footer-tagline">Building Bridges to Sustainable Financial Excellence</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id !== 'home' && section.classList.contains('hero')) {
+                    return;
+                }
+                section.classList.add('hidden');
+            });
+
+            // Show selected section
+            const selectedSection = document.getElementById(sectionId);
+            if (selectedSection) {
+                selectedSection.classList.remove('hidden');
+            }
+
+            // Update active nav link
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + sectionId) {
+                    link.classList.add('active');
+                }
+            });
+
+            // Close mobile menu
+            document.getElementById('navLinks').classList.remove('active');
+
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        // Handle initial page load
+        window.addEventListener('load', () => {
+            const hash = window.location.hash.substring(1) || 'home';
+            showSection(hash);
+        });
+    </script>
+</body>
+</html>
